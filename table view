@@ -1,0 +1,39 @@
+{
+    NSArray *tableData;
+    NSArray *thumbnails;
+}
+
+
+
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    
+    
+        
+        tableData = [NSArray arrayWithObjects:@".....", @".....", @"....", @".....", @".....", nil];
+    //thumbnails = [NSArray arrayWithObjects:@"IMG_0976.JPG", nil];
+    
+    }
+
+
+   - (NSInteger) tableView : (UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+    {
+        return [tableData count];
+    }
+    
+   - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+    {
+        static NSString *simpleTableIdentifier = @"SimpleTableItem";
+        
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+        
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+        }
+        
+      cell.textLabel.text = [tableData objectAtIndex:indexPath.row];
+cell.imageView.image = [UIImage imageNamed:@"IMG_0976.JPG"];
+        return cell;
+   }
